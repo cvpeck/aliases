@@ -160,7 +160,25 @@
     clear-reflog-now = "!clearReflogNow() { git reflog expire --all --expire=now;  }; clearReflogNow"
     remove-old-commits = "!removeOldCommits() { git clear-reflog-now; git prune;  }; removeOldCommits"
 
+# Create new project from template
+# git newproject cvpeck/Template newprojectname
+#
+
+newproject = "!newProject(){ hub clone --depth 1 --origin source $1 $2; cd $2; hub create $2; }; newProject"
 
 #
 # ===[ALIAS-STOP]===
+
+[color]
+	ui = auto
+[color "diff"]
+	whitespace = red reverse
+[branch]
+	autosetupmerge = true
+[push]
+	default = tracking
+[rerere]
+	enabled = true
+[merge]
+	stat = true
 
