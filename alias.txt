@@ -161,7 +161,7 @@
     remove-old-commits = "!removeOldCommits() { git clear-reflog-now; git prune;  }; removeOldCommits"
 
 # Create new project from template
-# git newproject cvpeck/Template newprojectname
+# git newproject github_username/Template newprojectname
 #
 
 newproject = "!newProject(){ hub clone --depth 1 --origin source $1 $2; cd $2; hub create $2; }; newProject"
